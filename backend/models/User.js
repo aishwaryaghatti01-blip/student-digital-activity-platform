@@ -57,6 +57,12 @@ const userSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
+    validate: {
+      validator: function(v) {
+        return v === null || v === undefined || /^\d{10}$/.test(v);
+      },
+      message: 'Phone number must be exactly 10 digits',
+    },
     default: null,
   },
   department: {
