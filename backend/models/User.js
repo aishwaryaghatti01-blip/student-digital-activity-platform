@@ -20,6 +20,32 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  usn: {
+    type: String,
+    unique: true,
+    sparse: true,
+  },
+  semester: {
+    type: Number,
+    min: 1,
+    max: 8,
+  },
+  branch: {
+    type: String,
+    enum: [
+      'Computer Science Engineering',
+      'Mechanical Engineering',
+      'Civil Engineering',
+      'Information Science Engineering',
+      'Data Science Engineering',
+      'Electrical and Electronics Engineering',
+      'Electronics and Communication Engineering',
+      'AI/ML',
+      'Chemical Engineering',
+      'Aeronautical Engineering',
+      'Others'
+    ],
+  },
   role: {
     type: String,
     enum: ['student', 'teacher', 'admin'],
